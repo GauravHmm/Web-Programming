@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GreenBites Food Delivery</title>
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+header{
+    background-color:#2e7d32;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+nav{
+    background-color:#1b5e20;
+    text-align:center;
+    padding:10px;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+}
+.section{
+    padding:40px 20px;
+    text-align:center;
+}
+#welcome{
+    background:url("images/welcome.jpg") no-repeat center/cover;
+    color:white;
+}
+#welcome button{
+    padding:10px 20px;
+    background:#2e7d32;
+    border:none;
+    color:white;
+    cursor:pointer;
+    margin-top:15px;
+}
+.categories{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+.card{
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:8px;
+}
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:8px;
+}
+.menu{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+.menu-item{
+    border:1px solid #ddd;
+    padding:15px;
+    width:250px;
+    border-radius:8px;
+}
+.menu-item img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:8px;
+}
+.menu-item button{
+    padding:8px 15px;
+    background:#2e7d32;
+    border:none;
+    color:white;
+    cursor:pointer;
+    margin-top:10px;
+}
+#contact{
+    background:#f1f8e9;
+}
+footer{
+    background:#1b5e20;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+.student-info{
+    bottom: 10px;
+    left: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: white;
+    color: black;
+    border-radius: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>GreenBites Food Delivery</h1>
+<p>Pure Vegetarian Goodness Delivered Fast</p>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Menu</a>
+<a href="#">Order Online</a>
+<a href="#">Contact Us</a>
+</nav>
+
+<section class="section" id="welcome">
+<h2>Fresh Vegetarian Food Delivered to Your Doorstep</h2>
+<p>Enjoy healthy, delicious, and 100% vegetarian meals prepared with fresh ingredients.</p>
+<button>Order Now</button>
+</section>
+
+<section class="section">
+<h2>Food Categories</h2>
+<div class="categories">
+<div class="card">
+<img src="images/pizza.jpg">
+<h3>Pizza</h3>
+<p>Loaded with fresh vegetables and cheese.</p>
+</div>
+<div class="card">
+<img src="images/burger.jpg">
+<h3>Burgers</h3>
+<p>Crispy patties with fresh lettuce and sauces.</p>
+</div>
+<div class="card">
+<img src="images/paneer-biryani.jpg">
+<h3>Paneer Biryani</h3>
+<p>Flavorful rice with rich paneer pieces.</p>
+</div>
+<div class="card">
+<img src="images/dessert.jpg">
+<h3>Desserts</h3>
+<p>Sweet delights to finish your meal.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Popular Dishes</h2>
+<div class="menu">
+<div class="menu-item">
+<img src="images/margherita.jpg">
+<h3>Margherita Veg Pizza</h3>
+<p>Classic cheese pizza with fresh basil.</p>
+<p>₹249</p>
+<button>Add to Cart</button>
+</div>
+<div class="menu-item">
+<img src="images/paneer-wrap.jpg">
+<h3>Paneer Tikka Wrap</h3>
+<p>Grilled paneer with spices and veggies.</p>
+<p>₹179</p>
+<button>Add to Cart</button>
+</div>
+<div class="menu-item">
+<img src="images/veg-fried-rice.jpg">
+<h3>Veg Fried Rice</h3>
+<p>Stir-fried rice with fresh vegetables.</p>
+<p>₹199</p>
+<button>Add to Cart</button>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<h2>Contact Us</h2>
+<p>Phone: +91 9876543210</p>
+<p>Email: support@greenbites.com</p>
+<p>Location: Chennai, India</p>
+<p>
+<a href="#">Facebook</a> | 
+<a href="#">Instagram</a> | 
+<a href="#">Twitter</a>
+</p>
+</section>
+
+<footer>
+<p>© 2026 GreenBites Veg Delivery | All rights reserved</p>
+</footer>
+
+<div class="student-info">
+Name: Gauravsingh Rajpurohit <br>
+Reg.No: 24BCE2208
+</div>
+
+</body>
+</html>
