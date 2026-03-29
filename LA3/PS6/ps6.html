@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title of the webpage -->
+    <title>Student Information System</title>
+
+    <style>
+        /* Basic table styling */
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+    </style>
+
+    <script>
+        // Array to store student objects
+        var students = [];
+
+        // Function to add student data
+        function addStudent() {
+
+            // Get values from input fields
+            var name = document.getElementById("name").value;
+            var reg = document.getElementById("reg").value;
+            var marks = document.getElementById("marks").value;
+
+            // Create student object
+            var student = {
+                name: name,
+                reg: reg,
+                marks: marks
+            };
+
+            // Add object to array
+            students.push(student);
+
+            // Display updated table
+            displayStudents();
+
+            // Reset form and focus
+            document.getElementById("form").reset();
+            document.getElementById("name").focus();
+        }
+
+        // Function to display students in table
+        function displayStudents() {
+
+            var table = "<tr><th>Name</th><th>Reg No</th><th>Marks</th></tr>";
+
+            // Loop through array and build table
+            for (var i = 0; i < students.length; i++) {
+                table += "<tr>";
+                table += "<td>" + students[i].name + "</td>";
+                table += "<td>" + students[i].reg + "</td>";
+                table += "<td>" + students[i].marks + "</td>";
+                table += "</tr>";
+            }
+
+            // Insert table into HTML
+            document.getElementById("output").innerHTML = table;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Student input form -->
+    <form id="form" onsubmit="addStudent(); return false;">
+        Name: <input type="text" id="name"><br><br>
+        Reg No: <input type="text" id="reg"><br><br>
+        Marks: <input type="number" id="marks"><br><br>
+
+        <button type="submit">Add Student</button>
+    </form>
+
+    <br>
+
+    <!-- Table display -->
+    <table id="output"></table>
+
+    <!-- Name and Registration Number -->
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+
+</html>

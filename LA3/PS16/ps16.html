@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title of the webpage -->
+    <title>Image Gallery (z-index)</title>
+
+    <style>
+        /* Style for images */
+        img {
+            position: absolute;   /* Allows overlapping */
+            width: 40%;
+            height: 40%;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        // Global variable to track top z-index
+        var topIndex = 1;
+
+        // Function to bring clicked image to front
+        function bringToFront(element) {
+
+            // Increment z-index and assign to clicked image
+            topIndex++;
+            element.style.zIndex = topIndex;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Overlapping images -->
+     <img src="images/image1.jpg" style="top:80px; left:30px;" onclick="bringToFront(this)">
+     <img src="images/image2.jpg" style="top:110px; left:80px;" onclick="bringToFront(this)">
+     <img src="images/image3.jpg" style="top:140px; left:130px;" onclick="bringToFront(this)">
+
+    <!-- Name and Registration Number -->
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+
+</html>

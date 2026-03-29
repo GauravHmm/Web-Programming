@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title of the webpage -->
+    <title>While Loop - Print 1 to N</title>
+
+    <script>
+        // Function to print numbers from 1 to N
+        function printNumbers() {
+
+            // Get value from input
+            var n = parseInt(document.getElementById("num").value);
+
+            var i = 1;           // Initialize counter
+            var output = "";     // Store result
+
+            // While loop to generate numbers
+            while(i <= n) {
+                output += i + "<br>";
+                i++;  // Increment counter
+            }
+
+            // Display output
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Input field -->
+    Enter N: <input type="number" id="num"><br><br>
+
+    <!-- Button -->
+    <button onclick="printNumbers()">Print</button>
+
+    <!-- Output -->
+    <p id="result"></p>
+
+    <!-- Name and Registration Number -->
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+
+</html>

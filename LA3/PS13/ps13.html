@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title of the webpage -->
+    <title>Product Order Form</title>
+
+    <script>
+        // Function to calculate total price
+        function calculateTotal() {
+
+            var total = 0;
+
+            // Get all selected checkboxes
+            var items = document.querySelectorAll("input[name='item']:checked");
+
+            // Loop using for...of
+            for (var item of items) {
+                total += parseFloat(item.value); // Add price
+            }
+
+            // Display total
+            document.getElementById("result").innerHTML = "Total Price: " + total;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Fieldset for grouping products -->
+    <fieldset>
+        <legend>Electronics</legend>
+        <input type="checkbox" name="item" value="500"> Headphones (₹500)<br>
+        <input type="checkbox" name="item" value="1000"> Keyboard (₹1000)<br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Accessories</legend>
+        <input type="checkbox" name="item" value="300"> Mouse (₹300)<br>
+        <input type="checkbox" name="item" value="700"> Bag (₹700)<br>
+    </fieldset>
+
+    <br>
+
+    <!-- Button -->
+    <button onclick="calculateTotal()">Calculate Total</button>
+
+    <!-- Output -->
+    <p id="result"></p>
+
+    <!-- Name and Registration Number -->
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+
+</html>

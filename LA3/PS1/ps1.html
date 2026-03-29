@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title of the webpage -->
+    <title>Hello World Button</title>
+
+    <script>
+        // Function to display Hello World message
+        function showMessage() {
+            // Access element using ID and replace it with new content
+            document.getElementById("demo").outerHTML = "<h2>Hello, world!</h2>";
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Button to trigger the function -->
+    <button onclick="showMessage()">Click Me</button>
+
+    <!-- Placeholder where output will be displayed -->
+    <p id="demo"></p>
+
+    <!-- Display Name and Registration Number -->
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+
+</html>

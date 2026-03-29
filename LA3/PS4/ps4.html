@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title of the webpage -->
+    <title>Rectangle Area</title>
+
+    <script>
+        // Function to calculate area of rectangle
+        function calculateArea() {
+
+            // Integer values
+            var length = 10;
+            var breadth = 5;
+
+            // Calculate area using integers
+            var area1 = length * breadth;
+
+            // Float values (loose typing demonstration)
+            length = 10.5;
+            breadth = 5.2;
+
+            // Calculate area using floating point numbers
+            var area2 = length * breadth;
+
+            // Display result in HTML
+            document.getElementById("result").innerHTML =
+                "Integer Area: " + area1 + "<br>Float Area: " + area2;
+        }
+    </script>
+</head>
+
+<body onload="calculateArea()">
+
+    <!-- Output display -->
+    <p id="result"></p>
+
+    <!-- Name and Registration Number -->
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+
+</html>

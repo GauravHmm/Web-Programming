@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title of the webpage -->
+    <title>Radio Button Selection</title>
+
+    <script>
+        // Function to display selected radio button value
+        function showSelection() {
+
+            // Get all radio buttons by name
+            var colors = document.getElementsByName("color");
+
+            var selected = "";
+
+            // Loop through radio buttons
+            for (var i = 0; i < colors.length; i++) {
+
+                // Check which one is selected
+                if (colors[i].checked) {
+                    selected = colors[i].value;
+                }
+            }
+
+            // Display selected value
+            document.getElementById("result").innerHTML = "Selected Color: " + selected;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Radio buttons -->
+    <input type="radio" name="color" value="Red"> Red<br>
+    <input type="radio" name="color" value="Green"> Green<br>
+    <input type="radio" name="color" value="Blue"> Blue<br><br>
+
+    <!-- Button -->
+    <button onclick="showSelection()">Show Selected</button>
+
+    <!-- Output -->
+    <p id="result"></p>
+
+    <!-- Name and Registration Number -->
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+
+</html>

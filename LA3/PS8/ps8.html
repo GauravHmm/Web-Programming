@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title of the webpage -->
+    <title>Multiplication Table (Do-While)</title>
+
+    <script>
+        // Function to generate multiplication table
+        function generateTable() {
+
+            // Get number from input
+            var num = parseInt(document.getElementById("number").value);
+
+            var i = 1;           // Initialize counter
+            var output = "";     // Store result
+
+            // Do-while loop (executes at least once)
+            do {
+                output += num + " x " + i + " = " + (num * i) + "<br>";
+                i++;  // Increment counter
+            } while(i <= 10);
+
+            // Display result
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Input field -->
+    Enter Number: <input type="number" id="number"><br><br>
+
+    <!-- Button -->
+    <button onclick="generateTable()">Generate Table</button>
+
+    <!-- Output -->
+    <p id="result"></p>
+
+    <!-- Name and Registration Number -->
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+
+</html>

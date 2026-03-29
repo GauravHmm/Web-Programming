@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title of the webpage -->
+    <title>Font Customization Tool</title>
+
+    <script>
+        // Function to update styles dynamically
+        function updateStyle() {
+
+            // Get values from inputs
+            var size = document.getElementById("size").value;
+            var color = document.getElementById("color").value;
+            var bg = document.getElementById("bg").value;
+
+            // Apply styles using style property
+            var text = document.getElementById("text");
+
+            text.style.fontSize = size + "px";
+            text.style.color = color;
+            text.style.backgroundColor = bg;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Fieldset for grouping controls -->
+    <fieldset>
+        <legend>Customize Font</legend>
+
+        Font Size:
+        <input type="range" id="size" min="10" max="50" oninput="updateStyle()"><br><br>
+
+        Text Color:
+        <input type="color" id="color" onchange="updateStyle()"><br><br>
+
+        Background Color:
+        <input type="color" id="bg" onchange="updateStyle()">
+    </fieldset>
+
+    <br>
+
+    <!-- Text to customize -->
+    <p id="text">Sample Text</p>
+
+    <!-- Name and Registration Number -->
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+
+</html>

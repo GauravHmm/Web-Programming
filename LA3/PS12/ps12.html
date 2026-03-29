@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title of the webpage -->
+    <title>Skills Validation Form</title>
+
+    <script>
+        // Function to validate selected skills
+        function validateSkills() {
+
+            // Get all checkboxes
+            var skills = document.getElementsByName("skill");
+
+            var selected = [];  // Store selected skills
+
+            // Loop through checkboxes
+            for (var i = 0; i < skills.length; i++) {
+
+                // Check if selected
+                if (skills[i].checked) {
+                    selected.push(skills[i].value);
+                }
+            }
+
+            // Check if at least 3 selected
+            if (selected.length < 3) {
+                document.getElementById("result").innerHTML =
+                    "Please select at least 3 skills.";
+            } else {
+                document.getElementById("result").innerHTML =
+                    "Selected Skills: " + selected.join(", ");
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Checkbox options -->
+    <input type="checkbox" name="skill" value="HTML"> HTML<br>
+    <input type="checkbox" name="skill" value="CSS"> CSS<br>
+    <input type="checkbox" name="skill" value="JavaScript"> JavaScript<br>
+    <input type="checkbox" name="skill" value="Python"> Python<br>
+    <input type="checkbox" name="skill" value="Java"> Java<br><br>
+
+    <!-- Button -->
+    <button onclick="validateSkills()">Submit</button>
+
+    <!-- Output -->
+    <p id="result"></p>
+
+    <!-- Name and Registration Number -->
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+
+</html>

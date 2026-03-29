@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title of the webpage -->
+    <title>Checkbox Selection</title>
+
+    <script>
+        // Function to count and display selected checkboxes
+        function showSelection() {
+
+            // Get all checkboxes by name
+            var subjects = document.getElementsByName("subject");
+
+            var selected = [];   // Array to store selected values
+            var count = 0;       // Counter
+
+            // Loop through checkboxes
+            for (var i = 0; i < subjects.length; i++) {
+
+                // Check if checkbox is selected
+                if (subjects[i].checked) {
+                    selected.push(subjects[i].value); // Add to array
+                    count++; // Increment counter
+                }
+            }
+
+            // Display result
+            document.getElementById("result").innerHTML =
+                "Selected Subjects: " + selected.join(", ") +
+                "<br>Total Selected: " + count;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Checkbox options -->
+    <input type="checkbox" name="subject" value="Math"> Math<br>
+    <input type="checkbox" name="subject" value="Science"> Science<br>
+    <input type="checkbox" name="subject" value="English"> English<br>
+    <input type="checkbox" name="subject" value="Computer"> Computer<br><br>
+
+    <!-- Button -->
+    <button onclick="showSelection()">Show Selection</button>
+
+    <!-- Output -->
+    <p id="result"></p>
+
+    <!-- Name and Registration Number -->
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+
+</html>

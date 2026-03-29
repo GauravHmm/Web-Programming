@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Generator</title>
+
+    <script>
+        // Function to generate email
+        function generateEmail(form) {
+            var fname = form.fname.value;
+            var lname = form.lname.value;
+
+            var email = fname + "." + lname + "@park.edu";
+
+            document.getElementById("result").innerHTML = email;
+
+            form.reset();
+            form.fname.focus();
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Form input -->
+    <form onsubmit="generateEmail(this); return false;">
+        First Name: <input type="text" name="fname"><br>
+        Last Name: <input type="text" name="lname"><br>
+        <button type="submit">Generate</button>
+    </form>
+
+    <p id="result"></p>
+
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+</html>

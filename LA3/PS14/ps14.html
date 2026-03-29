@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Title of the webpage -->
+    <title>Text Styling Application</title>
+
+    <style>
+        /* Predefined CSS classes */
+        .bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .smallcaps {
+            font-variant: small-caps;
+        }
+    </style>
+
+    <script>
+        // Function to apply selected style
+        function applyStyle(style) {
+
+            // Apply class to text
+            document.getElementById("text").className = style;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Fieldset for grouping -->
+    <fieldset>
+        <legend>Text Styling</legend>
+
+        <!-- Buttons for styles -->
+        <button onclick="applyStyle('bold')">Bold</button>
+        <button onclick="applyStyle('italic')">Italic</button>
+        <button onclick="applyStyle('smallcaps')">Small Caps</button>
+    </fieldset>
+
+    <br>
+
+    <!-- Text to style -->
+    <p id="text">This is a sample text</p>
+
+    <!-- Name and Registration Number -->
+    <div style="position:fixed; bottom:10px; left:10px;">
+        Name: Gauravsingh Rajpurohit <br>
+        Reg No: 24BCE2208
+    </div>
+
+</body>
+
+</html>
