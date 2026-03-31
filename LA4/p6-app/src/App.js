@@ -2,17 +2,17 @@ import React, { useState } from "react";
 
 function App() {
   const [city, setCity] = useState("");
-  const [data, setData] = useState(null);
+  const [weather, setWeather] = useState(null);
   const [error, setError] = useState("");
 
   const box = {
     width: "260px",
     margin: "40px auto",
-    padding: "15px",
+    padding: "30px",
     border: "1px solid #333",
     borderRadius: "6px"
   };
-
+0
   const input = {
     width: "100%",
     margin: "6px 0",
@@ -24,27 +24,62 @@ function App() {
     padding: "6px 10px"
   };
 
+  //Weather code → description
+  const getWeatherDescription = (code) => {
+    const map = {
+      0: "Clear sky",
+      1: "Mainly clear",
+      2: "Partly cloudy",
+      3: "Overcast",
+      45: "Fog",
+      48: "Depositing rime fog",
+      51: "Light drizzle",
+      53: "Moderate drizzle",
+      55: "Dense drizzle",
+      61: "Light rain",
+      63: "Moderate rain",
+      65: "Heavy rain",
+      71: "Snow fall",
+      80: "Rain showers"
+    };
+    return map[code] || "Unknown";
+  };
+
   const fetchWeather = async () => {
     try {
-      const apiKey = process.env.REACT_APP_API_KEY;
-
-      const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+      // Step 1: Get coordinates
+      const geoRes = await fetch(
+        `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
       );
+      const geoData = await geoRes.json();
 
-      const result = await res.json();
-      console.log(result);
-
-      if (result.cod === 200) {
-        setData(result);
-        setError("");
-      } else {
-        setData(null);
+      if (!geoData.results) {
         setError("City not found");
+        setWeather(null);
+        return;
       }
+
+      const { latitude, longitude, name } = geoData.results[0];
+
+      // Step 2: Fetch weather
+      const weatherRes = await fetch(
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=relativehumidity_2m`
+      );
+      const weatherData = await weatherRes.json();
+
+      setWeather({
+        city: name,
+        temp: weatherData.current_weather.temperature,
+        wind: weatherData.current_weather.windspeed,
+        code: weatherData.current_weather.weathercode,
+        humidity: weatherData.hourly.relativehumidity_2m[0]
+      });
+
+      setError("");
+
     } catch (err) {
       setError("Error fetching data");
-      setData(null);
+      setWeather(null);
     }
   };
 
@@ -55,6 +90,7 @@ function App() {
       <input
         style={input}
         placeholder="Enter city"
+        value={city}
         onChange={(e) => setCity(e.target.value)}
       />
 
@@ -62,21 +98,18 @@ function App() {
         Search
       </button>
 
-      {/* Error message */}
       {error && <p style={{ color: "red" }}>{error}</p>}
 
-      {/* Safe rendering */}
-      {data && data.weather && (
+      {weather && (
         <div>
-          <h3>{data.name}</h3>
-          <p>Temperature: {(data.main.temp - 273.15).toFixed(1)} °C</p>
-          <p>{data.weather[0].description}</p>
-          <p>Humidity: {data.main.humidity}%</p>
-          <p>Wind: {data.wind.speed} m/s</p>
+          <h3>{weather.city}</h3>
+          <p>Temperature: {weather.temp} °C</p>
+          <p>Description: {getWeatherDescription(weather.code)}</p>
+          <p>Humidity: {weather.humidity}%</p>
+          <p>Wind Speed: {weather.wind} km/h</p>
         </div>
       )}
 
-      {/* Name + Reg No */}
       <p style={{ position: "fixed", bottom: "10px", left: "10px", fontSize: "12px" }}>
         Name: Gauravsingh Rajpurohit <br />
         Reg No: 24BCE2208
