@@ -8,7 +8,7 @@ function App() {
   const container = {
     width: "260px",
     margin: "40px auto",
-    padding: "15px",
+    padding: "30px",
     border: "1px solid #333",
     borderRadius: "6px"
   };
